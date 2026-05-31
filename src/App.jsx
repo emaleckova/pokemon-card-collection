@@ -35,7 +35,7 @@ function App() {
 
   return (
     <div>
-      <Card />
+      <Card borderColor="red" pokemonId={150} />
     </div>
   );
 }
