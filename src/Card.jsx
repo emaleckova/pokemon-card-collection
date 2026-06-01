@@ -1,16 +1,16 @@
-const Card = ({ pokemons }) => {
+const Card = ({ pokemon }) => {
   return (
-    <>
-      {pokemons.map((pokemon) => (
-        <div key={pokemon.id} className="card">
-          <h5>{`Pokemon ${pokemon.id}`}</h5>
-          <img
-            src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png`}
-            alt={`Pokemon ${pokemon.id}`}
-          />
-        </div>
-      ))}
-    </>
+    <div className="card">
+      <h3>{pokemon.name}</h3>
+      <h5>({pokemon.type})</h5>
+      <img
+        src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png`}
+        alt={pokemon.name}
+      />
+
+      <p>Hit Points: {pokemon.hp}</p>
+      <p>Attack: {pokemon.attack}</p>
+    </div>
   );
 };
 
