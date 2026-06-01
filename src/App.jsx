@@ -34,7 +34,7 @@ function App() {
   console.log(pokemons);
 
   return (
-    <div className="card">
+    <div className="card-container">
       {pokemons.map((pokemon) => (
         <Card key={pokemon.id} pokemon={pokemon} />
       ))}
