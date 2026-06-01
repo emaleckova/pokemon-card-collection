@@ -27,16 +27,34 @@ const pokemons = [
   { id: 148, name: "Dragonair", type: "Dragon", hp: 61, attack: 84 },
 ];
 
+const typeColors = {
+  Grass: "#007E2FFF",
+  Fire: "#A40000FF",
+  Water: "#16317DFF",
+  Electric: "#FFCD12FF",
+  Psychic: "#B86092FF",
+  Normal: " #FFFFFFFF",
+  Ghost: "#00B7A7FF",
+  Fighting: "#721B3EFF",
+  Dragon: "#2E6F40FF",
+  Rock: "#7F7F7FFF",
+};
+
 function App() {
   // Sprite image URL pattern:
   // `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`
 
   console.log(pokemons);
+  console.log(typeColors);
 
   return (
     <div className="card-container">
       {pokemons.map((pokemon) => (
-        <Card key={pokemon.id} pokemon={pokemon} />
+        <Card
+          key={pokemon.id}
+          pokemon={pokemon}
+          color={typeColors[pokemon.type]}
+        />
       ))}
     </div>
   );
