@@ -1,12 +1,16 @@
-const Card = ({ borderColor, pokemonId }) => {
+const Card = ({ pokemons }) => {
   return (
-    <div className="card" border-color={borderColor}>
-      <h5>{`Pokemon ${pokemonId}`}</h5>
-      <img
-        src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonId}.png`}
-        alt={`Pokemon ${pokemonId}`}
-      />
-    </div>
+    <>
+      {pokemons.map((pokemon) => (
+        <div key={pokemon.id} className="card">
+          <h5>{`Pokemon ${pokemon.id}`}</h5>
+          <img
+            src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png`}
+            alt={`Pokemon ${pokemon.id}`}
+          />
+        </div>
+      ))}
+    </>
   );
 };
 
