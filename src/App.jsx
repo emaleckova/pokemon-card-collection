@@ -62,13 +62,17 @@ function App() {
       <h1 align="center">Pokemon Card Collection</h1>
 
       <div className="filters-container">
-        <ButtonGroup className="type-button">
+        <ButtonGroup className="type-button-group">
           {types.map((type) => (
             <Button
+              className="type-button"
               key={type}
               onClick={() => setActiveType(type)}
               active={activeType === type}
-              style={{ backgroundColor: "yellow" }}
+              style={{
+                borderColor: typeColors[type],
+                backgroundColor: typeColors[type],
+              }}
             >
               {type}
             </Button>

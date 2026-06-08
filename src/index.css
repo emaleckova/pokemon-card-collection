@@ -64,3 +64,22 @@
   margin-right: 0.25rem;
   white-space: nowrap;
 }
+
+.type-button-group {
+  display: flex;
+  flex-wrap: wrap;
+  border: none !important;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  align-content: center;
+}
+
+.type-button {
+  display: flex;
+  text-align: center;
+  gap: 1rem;
+  border: 0.15rem solid;
+  border-radius: 8px;
+  padding: 0.5rem;
+  width: 5rem;
+}
