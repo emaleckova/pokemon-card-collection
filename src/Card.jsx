@@ -9,9 +9,14 @@ const Card = ({ pokemon, color }) => {
           src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png`}
           alt={pokemon.name}
         />
-
-        <p>Hit Points: {pokemon.hp}</p>
-        <p>Attack: {pokemon.attack}</p>
+        <div className="stat">
+          <img src="icons/EmojioneMonotoneBoxingGlove.svg" />
+          <p>Hit Points: {pokemon.hp}</p>
+        </div>
+        <div className="stat">
+          <img src="icons/StreamlineSharpSwordAttackRemix.svg" />
+          <p>Attack: {pokemon.attack}</p>
+        </div>
       </div>
     </div>
   );

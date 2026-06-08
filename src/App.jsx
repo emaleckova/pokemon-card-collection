@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { Icon } from "@iconify/react";
+
 import "./App.css";
 
 import Card from "./Card";
@@ -48,14 +50,18 @@ function App() {
   console.log(typeColors);
 
   return (
-    <div className="card-container">
-      {pokemons.map((pokemon) => (
-        <Card
-          key={pokemon.id}
-          pokemon={pokemon}
-          color={typeColors[pokemon.type]}
-        />
-      ))}
+    <div>
+      <h1 align="center">Pokemon Card Collection</h1>
+
+      <div className="card-container">
+        {pokemons.map((pokemon) => (
+          <Card
+            key={pokemon.id}
+            pokemon={pokemon}
+            color={typeColors[pokemon.type]}
+          />
+        ))}
+      </div>
     </div>
   );
 }
