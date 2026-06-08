@@ -1,5 +1,6 @@
 // npm packages
 import { useState } from "react";
+import { Button, ButtonGroup } from "react-bootstrap";
 
 // local components
 import Card from "./Card";
@@ -53,31 +54,26 @@ function App() {
   const types = ["All", ...new Set(pokemons.map((p) => p.type))].sort();
 
   console.log(types);
-  // const types = ["All", ...new Set(pokemons.map((p) => p.type))].sort();
 
-  const [activeType, setActiveType] = useState("All");
-
-  const filteredPokemons =
-    activeType === "All"
-      ? pokemons
-      : pokemons.filter((p) => p.type === activeType);
+  const [activeType, setActiveType] = useState("All"); // default type
 
   return (
     <div>
       <h1 align="center">Pokemon Card Collection</h1>
 
       <div className="filters-container">
-        <div className="type-button">
+        <ButtonGroup className="type-button">
           {types.map((type) => (
-            <button
+            <Button
               key={type}
               onClick={() => setActiveType(type)}
-              className={`filter-type ${activeType === type ? "active" : ""}`}
+              active={activeType === type}
+              style={{ backgroundColor: "yellow" }}
             >
-              <span>{type}</span>
-            </button>
+              {type}
+            </Button>
           ))}
-        </div>
+        </ButtonGroup>
       </div>
 
       <div className="card-container">
