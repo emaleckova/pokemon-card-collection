@@ -1,9 +1,10 @@
+// npm packages
 import { useState } from "react";
-import { Icon } from "@iconify/react";
 
-import "./App.css";
-
+// local components
 import Card from "./Card";
+// visuals
+import "./App.css";
 
 /* Pokemon data */
 const pokemons = [
@@ -49,9 +50,35 @@ function App() {
   console.log(pokemons);
   console.log(typeColors);
 
+  const types = ["All", ...new Set(pokemons.map((p) => p.type))].sort();
+
+  console.log(types);
+  // const types = ["All", ...new Set(pokemons.map((p) => p.type))].sort();
+
+  const [activeType, setActiveType] = useState("All");
+
+  const filteredPokemons =
+    activeType === "All"
+      ? pokemons
+      : pokemons.filter((p) => p.type === activeType);
+
   return (
     <div>
       <h1 align="center">Pokemon Card Collection</h1>
+
+      <div className="filters-container">
+        <div className="type-button">
+          {types.map((type) => (
+            <button
+              key={type}
+              onClick={() => setActiveType(type)}
+              className={`filter-type ${activeType === type ? "active" : ""}`}
+            >
+              <span>{type}</span>
+            </button>
+          ))}
+        </div>
+      </div>
 
       <div className="card-container">
         {pokemons.map((pokemon) => (
