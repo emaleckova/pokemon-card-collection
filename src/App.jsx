@@ -55,7 +55,12 @@ function App() {
 
   console.log(types);
 
-  const [activeType, setActiveType] = useState("All"); // default type
+  const [activeType, setActiveType] = useState("All");
+
+  const filteredPokemons =
+    activeType === "All"
+      ? pokemons
+      : pokemons.filter((pokemon) => pokemon.type === activeType);
 
   return (
     <div>
@@ -81,7 +86,7 @@ function App() {
       </div>
 
       <div className="card-container">
-        {pokemons.map((pokemon) => (
+        {filteredPokemons.map((pokemon) => (
           <Card
             key={pokemon.id}
             pokemon={pokemon}
