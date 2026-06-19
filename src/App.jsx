@@ -55,8 +55,10 @@ function App() {
 
   console.log(types);
 
+  /* Options to filter by type */
   const [activeType, setActiveType] = useState("All");
 
+  /* Input data filtering */
   const filteredPokemons =
     activeType === "All"
       ? pokemons
@@ -70,10 +72,11 @@ function App() {
         <ButtonGroup className="type-button-group">
           {types.map((type) => (
             <Button
-              className="type-button"
+              className={`type-button ${
+                activeType === type ? "type-button-active" : ""
+              }`}
               key={type}
               onClick={() => setActiveType(type)}
-              active={activeType === type}
               style={{
                 borderColor: typeColors[type],
                 backgroundColor: typeColors[type],
