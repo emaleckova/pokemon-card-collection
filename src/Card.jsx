@@ -1,7 +1,8 @@
 const Card = ({ pokemon, color }) => {
   return (
     <div className="card" style={{ borderColor: color }}>
-      <div className="card-bg" style={{ backgroundColor: color }} />
+      <div className="card-bg" />
+      <div className="card-bg-fwd" style={{ backgroundColor: color }} />
       <div className="card-content">
         <h3>{pokemon.name}</h3>
         <h5>{pokemon.type}</h5>

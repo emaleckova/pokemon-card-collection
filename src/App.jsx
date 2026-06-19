@@ -67,7 +67,6 @@ function App() {
   return (
     <div>
       <h1 align="center">Pokemon Card Collection</h1>
-
       <div className="filters-container">
         <ButtonGroup className="type-button-group">
           {types.map((type) => (
@@ -87,7 +86,6 @@ function App() {
           ))}
         </ButtonGroup>
       </div>
-
       <div className="card-container">
         {filteredPokemons.map((pokemon) => (
           <Card
