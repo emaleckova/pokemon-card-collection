@@ -1,7 +1,14 @@
+/* COMMONS */
+:root {
+  --font-sans: Garamond, Helvetica, Arial, sans-serif;
+}
+
 body {
+  font-family: var(--font-sans);
   background: #ffe88a;
 }
 
+/* CARDS */
 .card-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -45,22 +52,26 @@ body {
 }
 
 .card h3 {
+  font-family: var(--font-sans);
   margin: 0;
   margin-bottom: 0.5rem;
   text-align: center;
 }
 
 .card h5 {
+  font-family: var(--font-sans);
   margin: 0;
   margin-bottom: 0.5rem;
   text-align: center;
 }
 
 .card p {
+  font-family: var(--font-sans);
   margin: 0;
   margin-bottom: 0.25rem;
 }
 
+/* Stats displayed in a card */
 .stat {
   display: flex;
   gap: 2px;
@@ -75,10 +86,12 @@ body {
 }
 
 .stat p {
+  font-family: var(--font-sans);
   margin-right: 0.25rem;
   white-space: nowrap;
 }
 
+/* Buttons with types */
 .type-button-group {
   display: flex;
   flex-wrap: wrap;
@@ -90,20 +103,27 @@ body {
 
 .type-button {
   display: flex;
-  text-align: center;
   gap: 1rem;
   border: 0.05rem solid;
   border-radius: 8px;
-  padding: 0.5rem;
   width: 5rem;
   height: 2.5rem;
 }
 
+.type-button p {
+  font-family: var(--font-sans);
+  text-align: center;
+  padding: 0.5rem;
+}
+
 .type-button-active {
+  font-family: var(--font-sans);
   box-shadow: 1px 1px 2px 2px #a38300;
 }
 
+/* Search box */
 .search-box {
+  font-family: var(--font-sans);
   border: 0.05rem solid;
   border-radius: 8px;
   gap: 1rem;
@@ -111,4 +131,18 @@ body {
   margin-bottom: 1rem;
   width: 8rem;
   height: 1.25rem;
+}
+
+/* NUmerical sliders */
+.stats-sliders {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+  margin: 0 0 16px 0;
+}
+
+.slider-section h4 {
+  font-family: var(--font-sans);
+  margin: 0 0 8px 8px;
+  font-size: 14px;
 }

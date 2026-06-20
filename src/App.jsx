@@ -55,14 +55,21 @@ function App() {
 
   console.log(types);
 
-  /* For filtering with type buttons */
+  /* For filtering with type buttons & searcg field */
   const [activeType, setActiveType] = useState("All");
   const [search, setSearch] = useState("");
+
+  /* For ranges of HP and attack values */
+  const [hpRange, setHpRange] = useState([0, 200]);
+  const [attackRange, setAttackRange] = useState([0, 200]);
 
   const filteredPokemons = pokemons.filter((p) => {
     const matchesType = activeType === "All" || p.type === activeType;
     const matchesSearch = p.name.toLowerCase().includes(search.toLowerCase());
-    return matchesType && matchesSearch;
+    const matchesHp = p.hp >= hpRange[0] && p.hp <= hpRange[1];
+    const matchesAttack =
+      p.attack >= attackRange[0] && p.attack <= attackRange[1];
+    return matchesType && matchesSearch && matchesHp && matchesAttack;
   });
 
   return (
@@ -70,6 +77,8 @@ function App() {
       <header className="header">
         <h1 align="center">Pokemon Card Collection</h1>
       </header>
+
+      {/* Type filter buttons */}
       <div className="filters-container">
         <ButtonGroup className="type-button-group">
           {types.map((type) => (
@@ -84,9 +93,11 @@ function App() {
                 backgroundColor: typeColors[type],
               }}
             >
-              {type}
+              <p>{type}</p>
             </Button>
           ))}
+
+          {/* Search field */}
           <input
             className="search-box"
             type="text"
@@ -95,6 +106,59 @@ function App() {
           />
         </ButtonGroup>
       </div>
+
+      <div className="stats-sliders">
+        {/* HP SLIDER */}
+        <div className="slider-section">
+          <h4>
+            HP: {hpRange[0]} - {hpRange[1]}
+          </h4>
+
+          <input
+            type="range"
+            min="0"
+            max="200"
+            value={hpRange[0]}
+            onChange={(e) => setHpRange([Number(e.target.value), hpRange[1]])}
+          />
+
+          <input
+            type="range"
+            min="0"
+            max="200"
+            value={hpRange[1]}
+            onChange={(e) => setHpRange([hpRange[0], Number(e.target.value)])}
+          />
+        </div>
+
+        {/* ATTACK SLIDER */}
+        <div className="slider-section">
+          <h4>
+            Attack: {attackRange[0]} - {attackRange[1]}
+          </h4>
+
+          <input
+            type="range"
+            min="0"
+            max="200"
+            value={attackRange[0]}
+            onChange={(e) =>
+              setAttackRange([Number(e.target.value), attackRange[1]])
+            }
+          />
+
+          <input
+            type="range"
+            min="0"
+            max="200"
+            value={attackRange[1]}
+            onChange={(e) =>
+              setAttackRange([attackRange[0], Number(e.target.value)])
+            }
+          />
+        </div>
+      </div>
+
       <div className="card-container">
         {filteredPokemons.map((pokemon) => (
           <Card
