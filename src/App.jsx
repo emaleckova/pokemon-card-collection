@@ -55,18 +55,21 @@ function App() {
 
   console.log(types);
 
-  /* Options to filter by type */
+  /* For filtering with type buttons */
   const [activeType, setActiveType] = useState("All");
+  const [search, setSearch] = useState("");
 
-  /* Input data filtering */
-  const filteredPokemons =
-    activeType === "All"
-      ? pokemons
-      : pokemons.filter((pokemon) => pokemon.type === activeType);
+  const filteredPokemons = pokemons.filter((p) => {
+    const matchesType = activeType === "All" || p.type === activeType;
+    const matchesSearch = p.name.toLowerCase().includes(search.toLowerCase());
+    return matchesType && matchesSearch;
+  });
 
   return (
     <div>
-      <h1 align="center">Pokemon Card Collection</h1>
+      <header className="header">
+        <h1 align="center">Pokemon Card Collection</h1>
+      </header>
       <div className="filters-container">
         <ButtonGroup className="type-button-group">
           {types.map((type) => (
@@ -84,6 +87,12 @@ function App() {
               {type}
             </Button>
           ))}
+          <input
+            className="search-box"
+            type="text"
+            placeholder="Search by name..."
+            onChange={(e) => setSearch(e.target.value)}
+          />
         </ButtonGroup>
       </div>
       <div className="card-container">
