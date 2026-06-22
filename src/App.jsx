@@ -77,7 +77,7 @@ function App() {
     <div>
       <header className="header">
         <div className="title-container">
-          <img src="pokemon-logo-png-1421.png" alt="Pokemon Logo" />
+          <img src="/pokemon-logo-png-1421.png" alt="Pokemon Logo" />
           <h1>Card Collection</h1>
         </div>
       </header>
