@@ -179,3 +179,22 @@ body {
   margin-right: 0.25rem;
   white-space: nowrap;
 }
+
+/* FOOTER */
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 0.75rem;
+  border-top: 0.05rem solid;
+}
+
+.footer a {
+  display: inline-flex;
+  align-items: center;
+  color: #3466af;
+  gap: 0.5rem;
+  text-decoration: none;
+  font-family: var(--font-sans);
+}
