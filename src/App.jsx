@@ -75,7 +75,10 @@ function App() {
   return (
     <div>
       <header className="header">
-        <h1 align="center">Pokemon Card Collection</h1>
+        <div className="title-container">
+          <img src="pokemon-logo-png-1421.png" alt="Pokemon Logo" />
+          <h1>Card Collection</h1>
+        </div>
       </header>
 
       {/* Type filter buttons */}
