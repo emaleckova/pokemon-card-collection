@@ -2,8 +2,9 @@
 import { useState } from "react";
 import { Button, ButtonGroup } from "react-bootstrap";
 
-// local components
+// custom components
 import Card from "./Card";
+import { getContrastColor } from "./textColor";
 // visuals
 import "./App.css";
 
@@ -94,6 +95,7 @@ function App() {
               style={{
                 borderColor: typeColors[type],
                 backgroundColor: typeColors[type],
+                color: getContrastColor(typeColors[type]),
               }}
             >
               {type}
