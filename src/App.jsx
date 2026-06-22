@@ -96,7 +96,7 @@ function App() {
                 backgroundColor: typeColors[type],
               }}
             >
-              <p>{type}</p>
+              {type}
             </Button>
           ))}
 
@@ -119,6 +119,7 @@ function App() {
 
           <input
             type="range"
+            label="hp_min"
             min="0"
             max="200"
             value={hpRange[0]}
@@ -127,6 +128,7 @@ function App() {
 
           <input
             type="range"
+            label="hp_max"
             min="0"
             max="200"
             value={hpRange[1]}
@@ -142,6 +144,7 @@ function App() {
 
           <input
             type="range"
+            label="attack_min"
             min="0"
             max="200"
             value={attackRange[0]}
@@ -152,6 +155,7 @@ function App() {
 
           <input
             type="range"
+            label="attack_max"
             min="0"
             max="200"
             value={attackRange[1]}
